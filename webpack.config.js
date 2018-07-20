@@ -17,8 +17,8 @@ const PATHS = {
 
 const common = merge([{
         entry: {
-            'index': path.join(PATHS.source,
-                './pages/index/index.js')
+            'demo-components-page': path.join(PATHS.source,
+                './pages/demo-components-page/demo-components-page.js')
         },
         output: {
             path: PATHS.build,
@@ -30,10 +30,10 @@ const common = merge([{
         },
         plugins: [
             new HtmlWebpackPlugin({
-                filename: 'index.html',
+                filename: 'demo-components-page.html',
                 chunks: ['index', 'common'],
                 template: path.join(PATHS.source, 
-                    './pages/index/index.pug')
+                    './pages/demo-components-page/demo-components-page.pug')
             })
         ],
     },
