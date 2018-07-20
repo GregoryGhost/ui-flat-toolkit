@@ -1,0 +1,6 @@
+mixin button({ labelColor = 'black', backgroundColor = 'white', isBig = false, isFilled = true, text='' })
+
+    if !text
+       - var text='text not found'
+
+    button.button(style=`color: ${labelColor}; background-color: ${backgroundColor}; border: none`)=text
