@@ -1,0 +1,41 @@
+.button
+    border: none
+    text-align: center
+    text-decoration: none
+    display: inline-block
+    cursor: pointer
+    border-radius: 5px
+    text-transform: uppercase
+    font-weight: bold
+    border-bottom: 5px solid black
+    
+    &_small
+        width: 6rem
+        height: 2rem
+        
+    &_big
+        width: 8rem
+        height: 2.5rem
+
+.button_disabled
+    text-transform: uppercase
+    font-weight: bold
+    border-radius: 5px
+    border-style: solid
+    cursor: not-allowed
+    background-color: white
+    border-top-width: 2px
+    border-right-width: 1px 
+    border-left-width: 1px
+    border-bottom-width: 5px
+
+.ripple
+    background-position: center
+    transition: background 0.8s
+        
+.ripple:hover
+    background: #47a7f5 radial-gradient(circle, transparent 1%, #47a7f5 1%) center/15000%
+    
+.ripple:active
+    background-size: 100%
+    transition: background 0s
