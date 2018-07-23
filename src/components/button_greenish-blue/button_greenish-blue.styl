@@ -1,0 +1,19 @@
+@import "../button/button.styl";
+
+bgColor = blue
+color = white
+borderColor = #029D33
+
+.button_greenish-blue
+    button_enabled(bgColor, color, borderColor)
+
+.button_greenish-blue:hover 
+    background: #97EB05 radial-gradient(circle, transparent 1%, #97EB05 1%) center/15000%
+    
+.button_greenish-blue:active
+    background-color: yellow
+    background-size: 100%
+    transition: background 0s
+
+.button_greenish-blue_disabled
+    button_disabled(color, bgColor, bgColor)
