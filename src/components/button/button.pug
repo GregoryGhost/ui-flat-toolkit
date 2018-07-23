@@ -4,8 +4,10 @@ mixin button({ color = '', isBig = false, isDisabled = false, text = '' })
         var size = isBig ? 'big' : 'small';
         var classSize = size ? `button_${size}` : '';
         var classColorScheme = color ? `button_${color}` : '';
-
+        var btnDisabled = (color && isDisabled) ? `button_${color}_disabled` : '';
     if isDisabled
-        button.button_disabled(class=`${classSize} ${classColorScheme}`, disabled)=text
-    else            
-        button.button.ripple(class=`${classSize} ${classColorScheme}`)=text
+        - var classes = `${classSize} ${btnDisabled}`;
+        button.button.button_disabled(class=classes, disabled)=text
+    else
+        - var classes = `${classSize} ${classColorScheme}`;
+        button.button.ripple(class=classes)=text
