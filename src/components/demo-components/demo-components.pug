@@ -1,4 +1,6 @@
 include ../title/title.pug
+include ../button_orange/button_orange.pug
+include ../button_greenish-blue/button_greenish-blue.pug
 
 mixin demo-components()
     .demo-components
@@ -6,4 +8,47 @@ mixin demo-components()
             .demo-components__title
                 +title("standard buttons")
             .demo-components__sample
-                //- пример использования компонентов
+                - var commonText = 'button';
+                .demo-components__row
+                    .demo-components__item
+                        +button_greenish-blue({
+                            text: commonText
+                        })
+                    .demo-components__item
+                        +button_greenish-blue({
+                            text: commonText,
+                            isBig: true
+                        })
+                    .demo-components__item
+                        +button_orange({
+                            text: commonText,
+                            isBig: true
+                        })
+                    .demo-components__item
+                        +button_orange({
+                            text: commonText
+                        })
+                .demo-components__row
+                    .demo-components__item
+                        +button_greenish-blue({
+                            text: commonText,
+                            isDisabled: true
+                        })
+                    .demo-components__item
+                        +button_greenish-blue({
+                            text: commonText,
+                            isBig: true,
+                            isDisabled: true
+                        })
+                    .demo-components__item
+                        +button_orange({
+                            text: commonText,
+                            isBig: true,
+                            isDisabled: true
+                        })
+                    .demo-components__item
+                        +button_orange({
+                            text: commonText,
+                            isDisabled: true
+                        })
+                    
