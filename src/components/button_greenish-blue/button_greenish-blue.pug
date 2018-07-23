@@ -1,0 +1,9 @@
+include ../button/button.pug
+
+mixin button_greenish-blue({ isBig = false, isDisabled = false, text = '' })
+    +button({
+        color: 'greenish-blue',
+        isBig: isBig,
+        isDisabled: isDisabled,
+        text: text
+    })

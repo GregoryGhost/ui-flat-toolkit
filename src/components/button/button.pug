@@ -1,15 +1,13 @@
-mixin button({ labelColor = 'black', backgroundColor = 'white', isBig = false, isDisabled = false, text = '' })
+mixin button({ color = '', isBig = false, isDisabled = false, text = '' })
     -
         var text= !text ? 'text not found' : text;
         var size = isBig ? 'big' : 'small';
         var classSize = size ? `button_${size}` : '';
-        var inactive = isDisabled ? "disabled" : '';
-
+        var classColorScheme = color ? `button_${color}` : '';
+        var btnDisabled = (color && isDisabled) ? `button_${color}_disabled` : '';
     if isDisabled
-        - var inlineStyle = `border-color: ${backgroundColor}`;
-        button.button_disabled(class = classSize, disabled, style=inlineStyle)=text
+        - var classes = `${classSize} ${btnDisabled}`;
+        button.button.button_disabled(class=classes, disabled)=text
     else
-        -
-            var inlineStyle = `color: ${labelColor}; ` +
-                `background-color: ${backgroundColor}`;
-        button.button.ripple(class = classSize, style=inlineStyle)=text 
+        - var classes = `${classSize} ${classColorScheme}`;
+        button.button.ripple(class=classes)=text
