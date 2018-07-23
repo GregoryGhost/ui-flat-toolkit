@@ -7,3 +7,25 @@ button_disabled(bgColor, color, borderColor)
     background-color: bgColor
     color: color
     border-color: borderColor
+
+ripple-effect_active(bgColor)
+    border-style: none
+    background-color: bgColor
+    background-size: 100%
+    transition: background 0s
+    
+ripple-effect_hover(bgColor)
+    background: bgColor radial-gradient(circle, transparent 1%, bgColor 1%) center/15000%
+
+button(classColor, color, bgColor, borderColor, rippleColor)
+    .button_{classColor}
+        button_enabled(bgColor, color, borderColor)
+        
+        &:hover
+            ripple-effect_hover(bgColor)
+        
+        &:active
+            ripple-effect_active(rippleColor)
+
+        &_disabled
+            button_disabled(color, bgColor, bgColor)
