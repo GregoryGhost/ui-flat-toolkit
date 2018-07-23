@@ -1,21 +1,19 @@
+@import "../button/button.styl";
+
+bgColor = green
+color = white
+borderColor = #029D33
+
 .button_orange
-    background-color: orange
-    color: white
-    border-bottom: 5px solid #CA3F02
-
-.button_disabled
-    color: orange
-    border-color: orange
-    background-color: white
-
-.ripple
-    background-position: center
-    transition: background 0.8s
-        
-.ripple:hover
+    button_enabled(bgColor, color, borderColor)
+    
+.button_orange:hover
     background: #FF8F61 radial-gradient(circle, transparent 1%, #FF8F61 1%) center/15000%
     
-.ripple:active
+.button_orange:active
     background-color: orange
     background-size: 100%
     transition: background 0s
+
+.button_orange_disabled
+    button_disabled(color, bgColor, bgColor)
