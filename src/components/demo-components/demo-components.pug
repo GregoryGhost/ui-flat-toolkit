@@ -1,6 +1,7 @@
 include ../title/title.pug
 include ../button_orange/button_orange.pug
 include ../button_greenish-blue/button_greenish-blue.pug
+include ../arrow-button/arrow-button.pug
 
 mixin demo-components()
     .demo-components
@@ -51,4 +52,24 @@ mixin demo-components()
                             text: commonText,
                             isDisabled: true
                         })
-                    
+
+        .demo-components__block
+            .demo-components__title
+                +title("arrow buttons")
+            .demo-components__sample
+                .demo-components__row
+                    .demo-components__item
+                        +arrow-button({
+                            isDisabled: true
+                        })
+                    .demo-components__item
+                        +arrow-button({
+                            direction: 'right',
+                            isDisabled: true
+                        })
+                    .demo-components__item
+                        +arrow-button({})
+                    .demo-components__item
+                        +arrow-button({
+                            direction: 'right'
+                        })
