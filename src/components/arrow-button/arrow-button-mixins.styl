@@ -1,3 +1,27 @@
+arrow-button-direction(state = 'inactive', arrowColor)
+    .arrow-button_{state}
+    
+        &:after
+            content: ''
+            position: absolute
+            
+            margin: 0 auto
+            border: 0.2rem solid arrowColor
+            width: 1rem
+            height: 1rem
+
+        &--left::before, &--left::after
+            left: 1rem
+            border-right: 0
+            border-top: 0
+            transform: translateY(-50%) translateX(35%) rotate(45deg)
+
+        &--right::before, &--right::after
+            right: 1rem
+            border-left: 1rem
+            border-bottom: 1rem
+            transform: translateY(-50%) translateX(-35%) rotate(45deg)
+
 arrow-button_inactive(borderColor, arrowColor, activeColor, bgColor)
     .arrow-button
             
@@ -14,27 +38,8 @@ arrow-button_inactive(borderColor, arrowColor, activeColor, bgColor)
                 border: 0.2rem solid activeColor
                 background-color: activeColor
 
-            &:after
-                content: ''
-                position: absolute
-                
-                margin: 0 auto
-                border: 0.2rem solid arrowColor
-                width: 1rem
-                height: 1rem
-
-            &--left::before, &--left::after
-                left: 1rem
-                border-right: 0
-                border-top: 0
-                transform: translateY(-50%) translateX(35%) rotate(45deg)
-
-            &--right::before, &--right::after
-                right: 1rem
-                border-left: 1rem
-                border-bottom: 1rem
-                transform: translateY(-50%) translateX(-35%) rotate(45deg)
-                
+    arrow-button-direction('inactive', arrowColor)
+    
 arrow-button_disabled(borderColor, arrowColor, bgColor)
     .arrow-button
     
@@ -43,23 +48,4 @@ arrow-button_disabled(borderColor, arrowColor, bgColor)
             background-color: bgColor
             border: 0.2rem solid borderColor
 
-            &:after
-                content: ''
-                position: absolute
-                
-                margin: 0 auto
-                border: 0.2rem solid arrowColor
-                width: 1rem
-                height: 1rem
-
-            &--left::before, &--left::after
-                left: 1rem
-                border-right: 0
-                border-top: 0
-                transform: translateY(-50%) translateX(35%) rotate(45deg)
-
-            &--right::before, &--right::after
-                right: 1rem
-                border-left: 1rem
-                border-bottom: 1rem
-                transform: translateY(-50%) translateX(-35%) rotate(45deg)
+    arrow-button-direction('disabled', arrowColor)
