@@ -1,0 +1,13 @@
+mixin arrow-button({ direction = 'left', isDisabled = false})
+    -
+        var classDisabled = isDisabled
+            ? 'arrow-button_disabled'
+            : 'arrow-button_inactive';
+        var classDirection = direction
+            ? `${classDisabled}--${direction}` : '';
+        var btnDisabled = isDisabled ? 'disabled' : '';
+
+    if isDisabled
+        button.arrow-button(class=`${classDirection} ${classDisabled}`, disabled)
+    else
+        button.arrow-button(class=`${classDirection} ${classDisabled}`)

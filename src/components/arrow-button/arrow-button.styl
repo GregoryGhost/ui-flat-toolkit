@@ -1,0 +1,17 @@
+@import "../../global/colors.styl";
+@import "./arrow-button-mixins.styl";
+
+.arrow-button
+    display: inline-block
+    position: relative
+    border-radius: 50%
+    width: 4rem
+    height: 4rem
+    border: none
+    background-size: 100%
+        
+borderColor = $colorGreenishBlue
+arrowColor = $colorWhite
+
+arrow-button_inactive(borderColor, arrowColor, $colorGray, borderColor)
+arrow-button_disabled(borderColor, borderColor, arrowColor)
