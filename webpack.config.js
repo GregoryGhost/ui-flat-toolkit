@@ -31,7 +31,7 @@ const common = merge([{
         plugins: [
             new HtmlWebpackPlugin({
                 filename: 'demo-components-page.html',
-                chunks: ['index', 'common'],
+                chunks: ['demo-components-page', 'common'],
                 template: path.join(PATHS.source, 
                     './pages/demo-components-page/demo-components-page.pug')
             })
