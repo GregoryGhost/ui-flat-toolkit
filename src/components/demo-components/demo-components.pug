@@ -2,6 +2,7 @@ include ../title/title.pug
 include ../button_orange/button_orange.pug
 include ../button_greenish-blue/button_greenish-blue.pug
 include ../arrow-button/arrow-button.pug
+include ../percentage-progress-bar/percentage-progress-bar.pug
 
 mixin demo-components()
     .demo-components
@@ -73,3 +74,24 @@ mixin demo-components()
                         +arrow-button({
                             direction: 'right'
                         })
+
+        .demo-components__block
+            .demo-components__title
+                +title("percentages / pie chart")
+            .demo-components__sample
+                .demo-components__row
+                    .demo-components__item
+                        +percentage-progress-bar({})
+                    .demo-components__item
+                        +percentage-progress-bar({
+                            percent: 38
+                        })
+                    .demo-components__item
+                        +percentage-progress-bar({
+                            percent: 62
+                        })
+                    .demo-components__item
+                        +percentage-progress-bar({
+                            percent: 89
+                        })
+
