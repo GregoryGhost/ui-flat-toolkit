@@ -1,25 +1,29 @@
-mixin percentage-progress-bar({ percent = 0, maxPercent = 100 })
-    mixin draw-angle({ angle1 = '180', angle2 = '0', value })
-        .pie
-            .clip1
-                .slice1(style=`transform: rotate(${angle1}deg)`)
-            .clip2
-                .slice2(style=`transform: rotate(${angle2}deg)`)
-            .status=`${value}`
-
-    //- calculate the angle
-    - var drawAngle = percent / maxPercent * 360;
-
-    //- calculate the angle to be displayed if each half
-    if drawAngle <= 180
-        - var firstHalfAngle = drawAngle;
-    else
-        - var firstHalfAngle = 180;
-        - var secondHalfAngle = drawAngle - firstHalfAngle;
-
-    //- set the transition
-    +draw-angle({
-        angle1: firstHalfAngle,
-        angle2: secondHalfAngle,
-        value: percent
-    })
+mixin percentage-progress-bar({ percent = 0})
+    -
+        var radius = 54;
+        pi = Math.PI;
+        var circumference = 2 * radius * pi;
+        var value = percent / 100;
+        var offset = circumference * (1 - value);
+        var strokeWidth = 5;
+        
+    svg.percentage-progress-bar(
+        width="120", height="120",
+        viewBox="0 0 120 120"
+    )
+        circle.percentage-progress-bar__meter(
+            cx="60", cy="60", r=`${radius}`,
+            stroke-width=strokeWidth
+        )
+        
+        circle.percentage-progress-bar__progress(
+            cx="60", cy="60", r=`${radius}`,
+            stroke-width=strokeWidth,
+            stroke-dashoffset=`${offset}`,
+            stroke-dasharray=`${circumference}`
+        )
+        
+        text.percentage-progress-bar__status(
+            x="60", y="-45",
+            text-anchor="middle"
+        )=percent
