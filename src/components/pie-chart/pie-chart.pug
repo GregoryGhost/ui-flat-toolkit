@@ -1,0 +1,19 @@
+mixin pie-chart(data = [])
+    -
+        var centerChart = "50% 50%";
+        //координата предыдущего item'а
+        // на пересечении с кругом диаграммы
+        var coordIntersection = "50% 0"; 
+    .pie-chart
+        each item in data
+            -
+                var coordinates = centerChart
+                    + //указать рассчет других координат
+                var position = `clip-path: polygon(${coordinates})`;
+                var colorItem = `background-color: ${item.color}`;
+                var tooltip = `${item.name}: ${item.percent}`;
+            .pie-chart_item(data-tooltip=tooltip,
+                style=`${position}`; ${colorItem}`)
+            item.name
+            item.percent
+            item.color
