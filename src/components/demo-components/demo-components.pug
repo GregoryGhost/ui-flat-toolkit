@@ -3,6 +3,7 @@ include ../button_orange/button_orange.pug
 include ../button_greenish-blue/button_greenish-blue.pug
 include ../arrow-button/arrow-button.pug
 include ../percentage-progress-bar/percentage-progress-bar.pug
+inlcude ../pie-chart/pie-char.pug
 
 mixin demo-components()
     .demo-components
@@ -94,4 +95,13 @@ mixin demo-components()
                         +percentage-progress-bar({
                             percent: 89
                         })
+                    .demo-components__item
+                        -
+                            var data = [
+                                {name: "test1", percent: 10, color: white},
+                                {name: "test2", percent: 25, color: white},
+                                {name: "test3", percent: 25, color: white},
+                                {name: "test4", percent: 40, color: white}
+                            ]
+                        +pie-chart(data)
 
