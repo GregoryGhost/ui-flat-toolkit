@@ -98,12 +98,10 @@ mixin demo-components()
                     .demo-components__item
                         -
                             var data = [
-                                { percent: 0.5, color: 'blue' },
-                                { percent: 0.3, color: 'yellow' },
-                                { percent: 0.2, color: 'gray' }
+                                { percent: 0.1, color: '#4f4f4f' },
+                                { percent: 0.25, color: '#e75735' },
+                                { percent: 0.3, color: '#4eb7a8' },
+                                { percent: 0.35, color: '#e5e5e5' } //- empty sector
                             ]
-                        +pie-chart({
-                            data: data,
-                            center: {x: 60, y: 60}
-                        })
+                        +pie-chart({ data: data})
 
