@@ -1,11 +1,19 @@
 mixin pie-chart({ data = [], center = {} })
     - var width = `${center.x * 2}`;
     - var height = `${center.y * 2}`;
-    svg(width=width, height=height, viewBox="-1 -1 2 2",
-        style="transform: rotate(-90deg)")
-        +draw-sectors({ data: data })
+    - var vHeightWidth = 2;
+    - var radius = vHeightWidth / 3;
+    
+    svg(width=width, height=height,
+        viewBox=`-1 -1 ${vHeightWidth} ${vHeightWidth}`,
+        style="transform: rotate(-90deg)"
+    )
+        +draw-sectors({
+            data: data,
+            radiusCutCircle:  radius
+        })
         
-mixin draw-sectors({ data = []})
+mixin draw-sectors({ data = [], radiusCutCircle = 1 })
     - pi = Math.PI;
     - accPercent = 0;
 
@@ -27,3 +35,5 @@ mixin draw-sectors({ data = []})
         - dPath = `M${x1} ${y1} A 1 1 0 ${isBigArc} 1 ${x2} ${y2} L 0 0`;
         - sectorColor = data[i].color;
         path(d=dPath, fill=`${sectorColor}`)
+        
+    circle(cx='0', cy='0', r=radiusCutCircle, fill='white')
