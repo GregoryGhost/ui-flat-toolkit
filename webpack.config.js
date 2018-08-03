@@ -1,42 +1,41 @@
 const path = require('path');
-const webpack = require('webpack');
 const merge = require('webpack-merge');
 const pug = require('./webpack/pug');
 const css = require('./webpack/css');
 const stylus = require('./webpack/stylus');
 const images = require('./webpack/images');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const extractCSS = require('./webpack/css.extract');
 const uglifyJS = require('./webpack/js.uglify');
 const fonts = require('./webpack/fonts');
+const ts = require('./webpack/typescript');
+const webpack = require('webpack');
+const getHtmlPages = require('./webpack/helpers');
 
 const PATHS = {
     source: path.join(__dirname, 'src'),
-    build: path.join(__dirname, 'bin')
+    build: path.join(__dirname, 'bin'),
 };
 
-const common = merge([{
-        entry: {
-            'demo-components-page': path.join(PATHS.source,
-                './pages/demo-components-page/demo-components-page.js')
-        },
-        output: {
-            path: PATHS.build,
-            filename: './js/[name].js'
-        },
-        output: {
-            path: PATHS.build,
-            filename: 'js/[name].js'
-        },
-        plugins: [
-            new HtmlWebpackPlugin({
-                filename: 'demo-components-page.html',
-                chunks: ['demo-components-page', 'common'],
-                template: path.join(PATHS.source, 
-                    './pages/demo-components-page/demo-components-page.pug')
-            })
-        ],
+const POINTS = {
+    build: PATHS.build,
+    src: PATHS.source,
+    htmlFileName: 'demo-components-page',
+    chunks: ['demo-components-page', 'common'],
+    entries: {
+        'demo-components-page': path.join(PATHS.source,
+            './pages/demo-components-page/demo-components-page.js')
     },
+    plugins: [
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery'
+        })
+    ],
+    htmlPages: getHtmlPages(path.join(PATHS.source, 'pages'))
+};
+
+const common = merge([
+    ts(POINTS),
     pug(),
     stylus(),
     images(),
