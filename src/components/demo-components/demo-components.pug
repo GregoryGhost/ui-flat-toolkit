@@ -4,6 +4,7 @@ include ../button_greenish-blue/button_greenish-blue.pug
 include ../arrow-button/arrow-button.pug
 include ../percentage-progress-bar/percentage-progress-bar.pug
 include ../pie-chart/pie-chart.pug
+include ../slider/slider.pug
 
 mixin demo-components()
     .demo-components
@@ -104,4 +105,21 @@ mixin demo-components()
                                 { percent: 0.35, color: '#e5e5e5' } //- empty sector
                             ]
                         +pie-chart({ data: data})
+                        
+        .demo-components__block
+            .demo-components__title
+                +title("sliders")
+            .demo-components__sample
+                .demo-components__row
+                    .demo-components__item.sliders
+                        +slider({
+                            value: 40
+                        })
+                    .demo-components__item.sliders
+                        +slider({
+                            value: 75,
+                            step: 25,
+                            hasPips: true,
+                            hasFloat: false
+                        })
 
