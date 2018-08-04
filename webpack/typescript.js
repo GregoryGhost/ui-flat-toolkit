@@ -13,8 +13,16 @@ module.exports = function(paths){
         module: {
             rules: [
                 {
+                    test: /\.ts$/,
+                    enforce: "pre",
+                    loaders: 'tslint-loader',
+                    exclude: [
+                        /node_modules/,
+                    ],
+                },
+                {
                     test: /\.{tsx,ts,js}$/,
-                    loader: 'ts-loader',
+                    loaders: 'ts-loader',
                     exclude: [
                         /node_modules/,
                     ],
