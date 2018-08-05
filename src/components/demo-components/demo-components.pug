@@ -5,6 +5,7 @@ include ../arrow-button/arrow-button.pug
 include ../percentage-progress-bar/percentage-progress-bar.pug
 include ../pie-chart/pie-chart.pug
 include ../slider/slider.pug
+include ../stages/stages.pug
 
 mixin demo-components()
     .demo-components
@@ -121,5 +122,15 @@ mixin demo-components()
                             step: 25,
                             hasPips: true,
                             hasFloat: false
+                        })
+        .demo-components__block
+            .demo-components__title
+                +title("stages")
+            .demo-components__sample
+                .demo-components__row
+                    .demo-components__item
+                        +stages({
+                            range: 3,
+                            count: 5
                         })
 
