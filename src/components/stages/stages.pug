@@ -1,0 +1,9 @@
+mixin stages({ range, count })
+    .stages
+        .stages__progress
+            - for(let i = 1; i <= count; i++)
+                -
+                    var isActive = (i = range)
+                        ? "stages__stage_active"
+                        : '';
+                .stages__stage(class = isActive)

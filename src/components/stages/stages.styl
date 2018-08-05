@@ -1,0 +1,42 @@
+.stages
+
+    &__progress
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-around
+        counter-reset: step
+
+    &__stage
+        height: 1.125rem
+        width: 1.125rem
+        border-radius: 50%
+        background-color: gray
+        color: black
+        text-align: center
+        position: relative
+        width: 20%
+        
+        &::before
+            content: counter(step)
+            counter-increment: step
+            /* делаем линию строчно-блочной */
+            display: inline-block
+
+            /* выравниваем вертикально по середине */
+            vertical-align: middle
+            /* не позволяем ширине превысить 100% (будет добавлен бордюр) */
+            box-sizing: border-box
+
+            height: 3px
+            background: #6CBD83
+
+            /* добавляем к линии левый и правый бордюр цветом основного фона заголовка
+            ** благодаря этому создается нужный отступ между линиями и текстом
+            */
+            border: solid #FFF
+            border-width: 0 10px
+            margin-left: 3rem
+
+        &_active
+            background-color: red
+            color: white
