@@ -1,10 +1,18 @@
-.stages_svg
+.stages
+  display: flex
   
   &__stage
     fill: gray
-    stroke: red
-    stroke-width: 5px
+    stroke: gray
    
     &_completed
-      fill: green
-      stroke: green
+      fill: red
+      stroke: red
+      
+  &__step
+     fill: black
+     font-weight: bold
+    
+  &__stage_completed + &__step
+      fill: white
+      

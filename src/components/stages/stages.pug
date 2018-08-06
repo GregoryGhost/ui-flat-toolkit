@@ -1,33 +1,46 @@
-mixin stages({ range, count })
-  - var offset = 30;
-  - var x0 = 0;
-  - var y0 = offset;
-  - var x1 = offset;
-  - var h = offset * 2;
-  - var w =  h * count * 2;
-  svg.stages_svg(width=w, height=h)
-    -for(let i = 1; i <= count; i++)
-      -
-        var isCompleted = (i <= range)
-        ? "stages_svg__stage_completed"
-        : '';
-      if (i < count)
-        -isFilled = (i+1 <= range) ? isCompleted : '';
-        line.stages_svg__stage(
-            class=isFilled,
-            x1=x0+offset, y1=y0,
-            x2=x1+offset, y2=y0
+mixin stage({ index, range, count, radiusCircle = 8 })
+  -
+    var isCompleted = (index <= range)
+      ? "stages__stage_completed"
+      : '';
+    var rCircle = radiusCircle;
+    var strokeWidth = 5;
+    var offset = rCircle * 2 + strokeWidth;
+    var x0 = 0;
+    var width = 100;
+    var x1 = offset;
+    var y0 = width / 2;
+  svg.stages__stage(
+    viewBox=`0 0 ${width} ${width}`,
+    stroke-width=strokeWidth
+  )
+      if (index < count)
+        -isFilled = (index+1 <= range) ? isCompleted : '';
+        line.stages__line(
+          class=isFilled,
+          x1=(x1 - strokeWidth), y1=y0,
+          x2=width, y2=y0
         )
         
       -cCircle = (x0 + x1) / 2;
-      circle.stages_svg__stage(
+      circle.stages__circle(
         class=isCompleted,
         cx=cCircle, cy=y0,
-        r=20
+        r=rCircle
       )
+      
       text.stages__step(
-            x=cCircle, y=y0+5,
-            text-anchor="middle"
-      )=i
-      -x0 = x1 + offset;
-      -x1 = x0 + offset;
+        x=cCircle, y=(y0 + rCircle/2),
+        text-anchor="middle",
+        stroke-width=0,
+        font-size=(rCircle * 1.5)
+      )=index
+  
+mixin stages({ range, count })
+  .stages
+    -for(let i = 1; i <= count; i++)
+      +stage({
+        index: i,
+        range: range,
+        count: count
+      })
