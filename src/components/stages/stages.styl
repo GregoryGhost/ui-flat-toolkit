@@ -1,18 +1,20 @@
+@import "../../global/colors.styl";
+
 .stages
   display: flex
   
   &__stage
-    fill: gray
-    stroke: gray
+    fill: $colorGray
+    stroke: $colorGray
    
     &_completed
-      fill: red
-      stroke: red
+      fill: $colorOrange
+      stroke: $colorOrange
       
   &__step
-     fill: black
+     fill: $colorDarkGray
      font-weight: bold
     
   &__stage_completed + &__step
-      fill: white
+      fill: $colorWhite
       
