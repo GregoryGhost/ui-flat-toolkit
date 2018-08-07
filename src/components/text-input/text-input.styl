@@ -1,0 +1,49 @@
+@import "../../global/colors.styl";
+
+.text-input
+    display: flex
+    
+    &__textbox
+        width: 200px
+        border-radius: 5px
+        border: 1px solid transparent
+        background-color: $colorLightenGray
+        padding: 5px 10px
+      
+        &:focus
+            border: 1px solid $colorLightenGreenishBlue
+    
+    &__tooltip
+        display: flex
+        flex-wrap: nowrap
+   
+    &__msg
+        padding: 7.5px 15px
+        text-transform: uppercase
+        white-space: nowrap
+        word-wrap: normal
+        border-radius: 3px
+        color: $colorWhite
+        font-weight: bold
+        font-size: 0.65rem
+
+        &_ok
+            background-color: $colorGreenishBlue
+            fill: $colorGreenishBlue
+
+        &_error
+            background-color: $colorDarkenOrange
+            fill: $colorDarkenOrange
+        
+        &_ok::after
+            content: attr(data-ok)
+             
+        &_error::after
+            content: attr(data-error)
+
+    &__msg &__msg_error
+        padding: 20px 25px
+    
+    &__arrow
+        width: 10px
+        background-color: $colorWhite
