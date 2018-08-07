@@ -1,0 +1,10 @@
+mixin textarea({ placeholder="placeholder", rows = 5, cols = 45, name = "text", wrap = "soft", resize = false })
+    -
+        var isResizing = (resize == false)
+            ? "resize: none" : "";
+    textarea.textarea(
+        name=name,
+        placeholder=placeholder,
+        rows=rows, cols=cols,
+        wrap=wrap, style=isResizing
+    )
