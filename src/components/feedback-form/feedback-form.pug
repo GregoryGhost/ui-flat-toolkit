@@ -1,0 +1,24 @@
+include ../text-input/text-input.pug
+include ../textarea/textarea.pug
+
+mixin feedback-form({} = {})
+    form.feedback-form
+        .feedback-form__input
+            +text-input({
+                hasError: true,
+                placeholder: "Your Name"
+            })
+        .feedback-form__input
+            +text-input({
+                placeholder: "Your Email"
+            })
+        .feedback-form__input
+            +textarea({
+                placeholder: "Your Message"
+            })
+        .feedback-form__input_submit
+            +button_greenish-blue({
+                isSubmit: true,
+                isBig: true,
+                text: "submit"
+            })
