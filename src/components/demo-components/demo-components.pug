@@ -6,9 +6,13 @@ include ../percentage-progress-bar/percentage-progress-bar.pug
 include ../pie-chart/pie-chart.pug
 include ../slider/slider.pug
 include ../stages/stages.pug
+include ../feedback-form/feedback-form.pug
+include ../toggle/toggle.pug
+include ../tick-box/tick-box.pug
 
 mixin demo-components()
     .demo-components
+    
         .demo-components__block
             .demo-components__title
                 +title("standard buttons")
@@ -105,7 +109,7 @@ mixin demo-components()
                                 { percent: 0.3, color: '#4eb7a8' },
                                 { percent: 0.35, color: '#e5e5e5' } //- empty sector
                             ]
-                        +pie-chart({ data: data})
+                        +pie-chart({ data: data })
                         
         .demo-components__block
             .demo-components__title
@@ -123,6 +127,7 @@ mixin demo-components()
                             hasPips: true,
                             hasFloat: false
                         })
+                        
         .demo-components__block
             .demo-components__title
                 +title("stages")
@@ -133,3 +138,37 @@ mixin demo-components()
                             range: 3,
                             count: 5
                         })
+                        
+        .demo-components__block
+            .demo-components__title
+                +title("form elements")
+            .demo-components__row
+                .demo-components__item
+                    +feedback-form()
+                .demo-components__item
+                    .demo-components__sample
+                        .demo-components__item
+                            +title("toggles")
+                            .demo-components__row
+                                .demo-components__item
+                                    +toggle({
+                                        name: "toggle1",
+                                        isChecked: false
+                                    })
+                                .demo-components__item
+                                    +toggle({
+                                        name: "toggle2"
+                                    })
+                        .demo-components__item
+                            +title("tick boxes")
+                            .demo-components__row
+                                .demo-components__item
+                                    +tick-box({
+                                        name: "tick-box1"
+                                    })
+                                .demo-components__item 
+                                    +tick-box({ 
+                                        isChecked: false,
+                                        name: "tick-box2"
+                                    })
+                    
