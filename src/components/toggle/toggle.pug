@@ -1,0 +1,21 @@
+mixin toggle({ isChecked = true, name = "toggle", labelChecked = "on", labelUnchecked="off" } = {})
+    .toggle
+        if isChecked
+            input.toggle__checkbox(
+                id=name,
+                name=name,
+                type="checkbox",
+                checked
+            )
+        else
+            input.toggle__checkbox(
+                id=name,
+                name=name,
+                type="checkbox"
+            )
+          
+        label.toggle__bubble.toggle__labels(
+            for=name,
+            data-checked=labelChecked,
+            data-unchecked=labelUnchecked
+        )
