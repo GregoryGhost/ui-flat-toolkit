@@ -1,0 +1,41 @@
+@import "../../global/colors.styl";
+
+.tick-box
+    position: relative
+    display: inline-block
+    width: 30px
+    height: 30px
+
+    & input
+        display: none
+
+    &__mark::before
+        content: ""
+        position: absolute
+        cursor: pointer
+        border-radius: 50%
+        width: 25px
+        height: 25px
+        background-color: $colorGreenishBlue
+        height: 100%
+        width: 100%
+        transition: 0.4s
+
+    &__mark::after
+        content: ""
+        display: block
+        position: absolute
+        top: 9px
+        left: 8px
+        width: 12px
+        height: 6px
+        border-left: 3px solid $colorWhite
+        border-bottom: 3px solid $colorWhite
+        transform: rotate(-45deg)
+        transition: 0.4s
+
+    &__checkbox:checked + &__mark::before
+        background-color: $colorLightenGray
+
+    &__checkbox:checked + &__mark::after
+        border-color: $colorGray

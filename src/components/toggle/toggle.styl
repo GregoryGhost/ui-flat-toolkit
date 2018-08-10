@@ -1,0 +1,60 @@
+@import "../../global/colors.styl";
+
+.toggle
+    position: relative
+    display: inline-block
+    width: 75px
+    height: 30px
+
+    & input
+        display: none
+
+    &__bubble
+        position: absolute
+        cursor: pointer
+        top: 0
+        left: 0
+        right: 0
+        bottom: 0
+        background-color: $colorLightenGray
+        transition: 0.4s
+        border-radius: 30px
+
+        &::before
+            content: ""
+            border-radius: 50%
+            background-color: $colorWhite
+            position: absolute
+            height: 24px
+            width: 24px
+            left: 4px
+            bottom: 3px
+            transition: 0.4s
+
+    &__labels::after
+        content: attr(data-unchecked)
+        display: block
+        position: absolute
+        z-index: 0
+        padding: 6px 5px
+        padding-left: 12px
+        height: 100%
+        width: 100%
+        text-transform: uppercase
+        font-weight: bold
+        text-align: center
+        font-size: 0.9rem
+        color: white
+        white-space: nowrap
+        transition: 0.1s
+
+    &__checkbox:checked + &__bubble
+        background-color: $colorGreenishBlue
+        
+    &__checkbox:checked + &__labels::after
+        content: attr(data-checked)
+        padding-left: 0
+        left: -12px
+
+    &__checkbox:checked + &__bubble::before
+        transform: translateX(43px)

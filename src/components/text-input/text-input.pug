@@ -1,0 +1,29 @@
+mixin text-input({ pattern = "", hasError = false, showTip = true, errorMsg = "error", okMsg = "thanks!", placeholder = "placeholder", name = "text"} = {})
+    -
+        var typeMsg = (hasError)
+          ? "text-input__msg_error"
+          : "text-input__msg_ok";
+        var isVisibleTip = (showTip)
+          ? "text-input__tooltip_visible"
+          : "text-input__tooltip_invisible";
+    .text-input()
+        input.text-input__textbox(
+          name=name, type="text",
+          placeholder=placeholder
+        )
+        .text-input__tooltip(
+            class=isVisibleTip
+        )
+          svg.text-input__arrow(
+            class=typeMsg,
+            viewBox="0 0 100 100"
+          )
+            polygon.text-input__tip(
+              rx="20",
+              points="50,50 100,0 100,100"
+            )
+          .text-input__msg(
+            class=typeMsg
+            data-ok=okMsg,
+            data-error=errorMsg
+          )
