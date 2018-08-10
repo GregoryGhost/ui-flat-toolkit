@@ -2,6 +2,10 @@ include ../title/title.pug
 include ../button_orange/button_orange.pug
 include ../button_greenish-blue/button_greenish-blue.pug
 include ../arrow-button/arrow-button.pug
+include ../percentage-progress-bar/percentage-progress-bar.pug
+include ../pie-chart/pie-chart.pug
+include ../slider/slider.pug
+include ../stages/stages.pug
 
 mixin demo-components()
     .demo-components
@@ -72,4 +76,60 @@ mixin demo-components()
                     .demo-components__item
                         +arrow-button({
                             direction: 'right'
+                        })
+
+        .demo-components__block
+            .demo-components__title
+                +title("percentages / pie chart")
+            .demo-components__sample
+                .demo-components__row
+                    .demo-components__item
+                        +percentage-progress-bar({})
+                    .demo-components__item
+                        +percentage-progress-bar({
+                            percent: 38
+                        })
+                    .demo-components__item
+                        +percentage-progress-bar({
+                            percent: 62
+                        })
+                    .demo-components__item
+                        +percentage-progress-bar({
+                            percent: 89
+                        })
+                    .demo-components__item
+                        -
+                            var data = [
+                                { percent: 0.1, color: '#4f4f4f' },
+                                { percent: 0.25, color: '#e75735' },
+                                { percent: 0.3, color: '#4eb7a8' },
+                                { percent: 0.35, color: '#e5e5e5' } //- empty sector
+                            ]
+                        +pie-chart({ data: data})
+                        
+        .demo-components__block
+            .demo-components__title
+                +title("sliders")
+            .demo-components__sample
+                .demo-components__row
+                    .demo-components__item.sliders
+                        +slider({
+                            value: 40
+                        })
+                    .demo-components__item.sliders
+                        +slider({
+                            value: 75,
+                            step: 25,
+                            hasPips: true,
+                            hasFloat: false
+                        })
+        .demo-components__block
+            .demo-components__title
+                +title("stages")
+            .demo-components__sample
+                .demo-components__row
+                    .demo-components__item.steps
+                        +stages({
+                            range: 3,
+                            count: 5
                         })

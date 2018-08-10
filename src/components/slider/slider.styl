@@ -1,0 +1,76 @@
+.slider
+    flex: 1 1 auto
+    cursor: move
+
+.ui-slider
+
+    &-handle
+        color: red
+        background-color: green
+        
+    &-tip
+        color: white
+        background-color: green
+    
+    &.ui-widget
+        background-color: gray
+        border: none
+        border-radius: 2.5rem
+        height: 0.38rem
+
+        .ui-slider
+
+            &-handle
+                border-radius: 50%
+                border: none
+                cursor: move
+                outline: none
+                top: -0.4em
+                background-color: red
+
+            &:focus
+                outline: none
+
+            &-range-min
+                background-color: green
+
+            &-tip
+                font-family: Lato, Arial, sans-serif
+                font-size: 0.81rem
+                line-height: 0.9em
+                font-weight: bold
+                width: 2.2rem
+                border-radius: 0.25rem
+                color: white
+                top: -2.6em
+                height: auto
+                letter-spacing: 0.05em
+                padding: 0.6em 0 0.35em
+                border: none
+                background-color: green
+
+                &:before
+                    bottom: -0.56rem
+                    border-top-color: green
+
+                &:after
+                    bottom: -0.56rem
+                    border-top-color: green
+
+            &-pip
+                top: 0.88rem
+
+                &:hover .ui-slider-label
+                    font-weight: 800
+
+                &:last-of-type
+                    margin-left: -1.188rem
+
+            &-line
+                display: none
+
+            &-label
+                font-family: Lato, Arial, sans-serif
+                font-size: 0.69rem
+                font-weight: 800
+                color: gray

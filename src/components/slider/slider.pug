@@ -1,0 +1,6 @@
+mixin slider({ minValue = 0, value = 50, maxValue = 100, hasFloat = true, hasPips = false, progressColor, trackColor, step = 1 } = {})
+    .slider.slider-js(data-float=hasFloat,
+        data-pips=hasPips, data-value=value,
+        data-max=maxValue, data-min=minValue,
+        data-step=step
+    )

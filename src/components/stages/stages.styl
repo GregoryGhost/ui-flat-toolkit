@@ -1,0 +1,20 @@
+@import "../../global/colors.styl";
+
+.stages
+  display: flex
+  
+  &__stage
+    fill: $colorLightenGray
+    stroke: $colorLightenGray
+   
+    &_completed
+      fill: $colorOrange
+      stroke: $colorOrange
+      
+  &__step
+     fill: $colorGray
+     font-weight: bold
+    
+  &__stage_completed + &__step
+      fill: $colorWhite
+      

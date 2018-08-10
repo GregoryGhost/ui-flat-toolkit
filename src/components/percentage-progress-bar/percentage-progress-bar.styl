@@ -1,0 +1,21 @@
+@import "../../global/colors.styl";
+
+.percentage-progress-bar
+    transform: rotate(-90deg)
+
+    &__meter
+        stroke: $colorWhite
+
+    &__progress
+        stroke: $colorOrange
+        stroke-linecap: rect
+        
+    &__meter
+    &__progress
+        fill: none
+        
+    &__status
+        fill: $colorGray
+        transform: rotate(90deg)
+        font-family: Arial
+        font-size: 2.8rem
